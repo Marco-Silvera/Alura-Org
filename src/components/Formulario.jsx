@@ -10,6 +10,8 @@ function Formulario(props) {
     const [foto, actualizarFoto] = useState("")
     const [equipo, actualizarEquipo] = useState("")
 
+    const {registrarColaborador} = props
+
     const manejoEnvio = (e) => {
         e.preventDefault()
         console.log("Manejar envio");
@@ -19,7 +21,7 @@ function Formulario(props) {
             foto: foto,
             equipo: equipo
         }
-        console.log(datosEnviados);
+        registrarColaborador(datosEnviados);
     }
     return (
         <section className="py-10 px-20 flex justify-center w-full font-Prata">
