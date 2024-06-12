@@ -10,19 +10,53 @@ function App() {
   const [mostrarFormulario, actualizarMostrar] = useState(true)
   const [colaboradores, actualizarColaboradores] = useState([{
     equipo: "Front End",
+    foto: "https://github.com/harlandlohora.png",
+    nombre: "Harland Lohora",
+    puesto: "Instructor"
+  },
+  {
+    equipo: "Programación",
     foto: "https://github.com/marco-silvera.png",
-    nombre: "Marco Silvera",
-    puesto: "Estudiante"
+    nombre: "Genesys Rondón",
+    puesto: "Desarrolladora de software e instructora"
+  },
+  {
+    equipo: "UX y Diseño",
+    foto: "https://github.com/JeanmarieAluraLatam.png",
+    nombre: "Jeanmarie Quijada",
+    puesto: "Instructora en Alura Latam"
+  },
+  {
+    equipo: "Programación",
+    foto: "https://github.com/christianpva.png",
+    nombre: "Christian Velasco",
+    puesto: "Head de Alura e Instructor"
+  },
+  {
+    equipo: "Innovación y Gestión",
+    foto: "https://github.com/JoseDarioGonzalezCha.png",
+    nombre: "Jose Gonzalez",
+    puesto: "Dev FullStack"
   }])
+
+
 
   const cambiarMostrar = () => {
     actualizarMostrar(!mostrarFormulario)
   }
 
-  const registrarColaborador = (colaborador)=>{
+
+
+  const registrarColaborador = (colaborador) => {
     console.log("Nuevo colaborador", colaborador)
     //Spread operator
     actualizarColaboradores([...colaboradores, colaborador])
+  }
+
+
+  // Eliminar colaborador
+  const eliminarColaborador = () => {
+    console.log("Eliminar colaborador");
   }
 
   const equipos = [
@@ -61,17 +95,22 @@ function App() {
       colorPrimario: '#FF8A29',
       colorSecundario: '#FFEEDF'
     },
-]
+  ]
 
   return (
     <>
       <Header />
-      {mostrarFormulario ? <Formulario equipos={equipos.map((equipo)=> equipo.titulo)}
+      {mostrarFormulario ? <Formulario equipos={equipos.map((equipo) => equipo.titulo)}
         registrarColaborador={registrarColaborador}
-        /> : <></>}
+      /> : <></>}
       <MiOrg cambiarMostrar={cambiarMostrar} />
 
-      {equipos.map((equipo)=> <Equipo datos={equipo} key={equipo.titulo} colaboradores={colaboradores.filter(colaborador=> colaborador.equipo===equipo.titulo)}/>
+      {equipos.map((equipo) => <Equipo
+        datos={equipo}
+        key={equipo.titulo}
+        colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}
+        eliminarColaborador={eliminarColaborador}
+      />
       )}
 
       <Footer />
