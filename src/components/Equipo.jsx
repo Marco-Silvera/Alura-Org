@@ -1,18 +1,22 @@
 import React, { cloneElement } from 'react'
 import Colaborador from './Colaborador'
+import hexToRgba from 'hex-to-rgba'
 
 function Equipo(props) {
 
-    const { colorPrimario, colorSecundario, titulo } = props.datos
-    const { colaboradores, eliminarColaborador } = props
+    const { colorPrimario, colorSecundario, titulo, id } = props.datos
+    const { colaboradores, eliminarColaborador, actualizarColor, like } = props
 
-    const obj = { backgroundColor: colorSecundario }
+    const obj = { backgroundColor: hexToRgba(colorPrimario, 0.6) }
     const estiloBorde = { borderColor: colorPrimario }
 
     return <>
         {
             colaboradores.length > 0 &&
-            <section className='p-8 text-[#212121] font-Prata text-center' style={obj}>
+            <section className='p-8 text-[#212121] font-Prata text-center relative' style={obj}>
+
+                <input className='absolute right-8' type="color" value={colorPrimario} onChange={(evento) => { actualizarColor(evento.target.value, id); }} />
+
                 <h3 className='text-3xl font-normal border-b-4 inline-block pb-2' style={estiloBorde}>{titulo}</h3>
                 <div className='flex justify-evenly flex-wrap pt-5'>
                     {
@@ -20,7 +24,8 @@ function Equipo(props) {
                             datos={colaborador}
                             key={index}
                             colorPrimario={colorPrimario}
-                            eliminarColaborador={eliminarColaborador} />)
+                            eliminarColaborador={eliminarColaborador}
+                            like={like} />)
                     }
                 </div>
             </section>
