@@ -1,6 +1,6 @@
-function Header (){
-    return(
-        <img className="w-full" src="../src/assets/header.webp" alt="" />
+function Header() {
+    return (
+        <img className="w-full" src="../../public/img/header.webp" alt="Header" />
     )
 }
 
