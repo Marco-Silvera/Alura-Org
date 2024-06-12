@@ -1,6 +1,6 @@
 function Header() {
     return (
-        <img className="w-full" src="../../public/img/header.webp" alt="Header" />
+        <img className="w-full" src="/img/header.webp" alt="Header" />
     )
 }
 
