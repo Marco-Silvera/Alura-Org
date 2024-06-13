@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
     return (
-        <footer className='flex justify-between text-white font-Montserrat text-xl items-center bg-cover bg-center p-[5%]' style={{backgroundImage: "url(/img/footer.png)"}}>
+        <footer className='flex justify-between text-white font-Montserrat text-xl items-center bg-cover bg-center p-5 sm:p-8' style={{ backgroundImage: "url(/img/footer.png)" }}>
             <div className='flex gap-3'>
                 <a href="https://www.aluracursos.com/">
                     <img src="/img/facebook.png" alt="Facebook" />
@@ -14,8 +14,8 @@ function Footer() {
                     <img src="/img/instagram.png" alt="Instagram" />
                 </a>
             </div>
-            <img className='px-4' src="/img/Logo.png" alt="org" />
-            <strong>Desarrollado por Alura</strong>
+            <img className='px-4 h-5 sm:h-10' src="/img/Logo.png" alt="org" />
+            <strong className='text-xs sm:text-xl md:text-2xl'>Desarrollado por Alura</strong>
         </footer>
     )
 }
